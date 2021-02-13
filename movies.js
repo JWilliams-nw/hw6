@@ -72,22 +72,19 @@ console.log(json)
   event.preventDefault()
   document.querySelector(`.movie-${movieId} .w-full`).classList.add('opacity-20')
   document.querySelector(`.movie-${movieId} .watched-button`).classList.add('opacity-20')
-  await db.collection('Watched').add({movieId})
+  await db.collection('Watched').doc(`${movieId}`).set({})
   })
 
 }
 let querySnapshot = await db.collection('Watched').get()
 let Watched = querySnapshot.docs
-
 for (let j=0; j < Watched.length; j++){
-let watchedAlready = Watched[j]
-let watchedId = watchedAlready.id
-let watchedData = watchedAlready.data()
-let movieId = watchedData.movieId
-console.log(movieId)
+if(Watched[j].data()) {
+  let movieId = Watched[j].id
+  console.log(movieId)
   document.querySelector(`.movie-${movieId} .w-full`).classList.add('opacity-20')
   document.querySelector(`.movie-${movieId} .watched-button`).classList.add('opacity-20')
-
+}
 }
 
   // ⬆️ ⬆️ ⬆️ 
