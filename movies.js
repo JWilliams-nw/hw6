@@ -79,7 +79,7 @@ console.log(json)
 let querySnapshot = await db.collection('Watched').get()
 let Watched = querySnapshot.docs
 for (let j=0; j < Watched.length; j++){
-if(Watched[j].data()) {
+if(Watched[j]) {
   let movieId = Watched[j].id
   console.log(movieId)
   document.querySelector(`.movie-${movieId} .w-full`).classList.add('opacity-20')
