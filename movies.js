@@ -81,9 +81,13 @@ let Watched = querySnapshot.docs
 
 for (let j=0; j < Watched.length; j++){
 let watchedAlready = Watched[j]
-watchedId = watchedAlready.id
-let watchedData = WatchedAlready.data()
-console.log(watchedData)
+let watchedId = watchedAlready.id
+let watchedData = watchedAlready.data()
+let movieId = watchedData.movieId
+console.log(movieId)
+  document.querySelector(`.movie-${movieId} .w-full`).classList.add('opacity-20')
+  document.querySelector(`.movie-${movieId} .watched-button`).classList.add('opacity-20')
+
 }
 
   // ⬆️ ⬆️ ⬆️ 
