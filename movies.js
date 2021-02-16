@@ -51,7 +51,6 @@ console.log(json)
    </div>`
     )
  
-  
 
   // ⬆️ ⬆️ ⬆️ 
   // End Step 2
